@@ -17,6 +17,9 @@
 * There are other packages that are used.
 * You can start the service with `npm run dev`.
 
+### API endpoints:
+![alt text](https://i.imgur.com/GBO3zZM.png)
+
 ### Create docker images
 * You can create your own docker image from this microservice.
 * Create an account on `hub.docker.com` or login if you already have one.
