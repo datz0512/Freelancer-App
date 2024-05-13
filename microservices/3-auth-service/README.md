@@ -17,6 +17,9 @@
   * `Faker to create seed data`
 * You can start the service with `npm run dev`.
 
+### API endpoints:
+![alt text](https://i.imgur.com/v2uWsjh.png)
+
 ### Create docker images
 * You can create your own docker image from this microservice.
 * Create an account on `hub.docker.com` or login if you already have one.
