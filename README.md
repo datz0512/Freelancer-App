@@ -4,29 +4,37 @@ This repo contains all codes for the ECommerce freelance marketplace application
 ![alt text](https://i.ibb.co/MD9WLy4/Project-architecture.png)
 
 ## Functional requirements:
-User Authentication
-- Create accounts, login, password reset
-  
-User Profiles
-- Create a seller's profile
-- Update profile
-  
-Search and Filters
-- Search for gigs
-  
-Messaging System
-- Buyers should be able to message sellers
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;User Authentication :
 
-Rating and Reviews
-- Buyers can review sellers
-- Sellers can review buyers
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Create accounts, login, password reset
   
-Payment Gateway Integration
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;User Profiles :
 
-View Orders
-- Buyers and sellers can view active, completed and cancelled orders
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Create a seller's profile
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Update profile
   
-Cancellation of Orders
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Search and Filters :
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Search for gigs
+  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Messaging System :
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Buyers should be able to message sellers
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rating and Reviews :
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Buyers can review sellers
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Sellers can review buyers
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;View Orders :
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Buyers and sellers can view active, completed and cancelled orders
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Payment Gateway Integration
+  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cancellation of Orders
 
 ## Kubernetes
 
