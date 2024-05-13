@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: freelance-mongo
+  namespace: production
+spec:
+  selector:
+    matchLabels:
+      app: freelance-mongo
+  serviceName: freelance-mongo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: freelance-mongo
+    spec:
+      containers:
+        - name: freelance-mongo
+          image: mongo
+          ports:
+            - containerPort: 27017
+              name: freelance-mongo
+          volumeMounts:
+            - name: mongo-local-storage
+              mountPath: /data/db
+      volumes:
+        - name: mongo-local-storage
+          persistentVolumeClaim:
+            claimName: mongo-pvc

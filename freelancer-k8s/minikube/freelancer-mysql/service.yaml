@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: freelance-mysql
+  namespace: production
+spec:
+  type: ClusterIP
+  selector:
+    app: freelance-mysql
+  ports:
+    - name: freelance-mysql
+      port: 3306
+      targetPort: 3306

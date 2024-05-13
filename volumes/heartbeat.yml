@@ -1,0 +1,80 @@
+heartbeat.config.monitors:
+  path: ${path.config}/monitors.d/*.yml
+  reload.enabled: false
+  reload.period: 5s
+
+heartbeat.monitors:
+  - type: http
+    id: freelancer-api-gateway
+    name: Freelancer API Gateway Service
+    schedule: '@every 5s'
+    hosts: ['http://192.168.1.7:4000/gateway-health']
+    check.request.method: GET
+    check.response.status: [200]
+
+  - type: http
+    id: freelancer-notification
+    name: Freelancer Notification Service
+    schedule: '@every 5s'
+    hosts: ['http://192.168.1.7:4001/notification-health']
+    check.request.method: GET
+    check.response.status: [200]
+
+  - type: http
+    id: freelancer-auth
+    name: Freelancer Auth Service
+    schedule: '@every 5s'
+    hosts: ['http://192.168.1.7:4002/auth-health']
+    check.request.method: GET
+    check.response.status: [200]
+
+  - type: http
+    id: freelancer-users
+    name: Freelancer Users Service
+    schedule: '@every 5s'
+    hosts: ['http://192.168.1.7:4003/user-health']
+    check.request.method: GET
+    check.response.status: [200]
+
+  - type: http
+    id: freelancer-gigs
+    name: Freelancer Gigs Service
+    schedule: '@every 5s'
+    hosts: ['http://192.168.1.7:4004/gig-health']
+    check.request.method: GET
+    check.response.status: [200]
+
+  - type: http
+    id: freelancer-chat
+    name: Freelancer Chat Service
+    schedule: '@every 5s'
+    hosts: ['http://192.168.1.7:4005/chat-health']
+    check.request.method: GET
+    check.response.status: [200]
+
+  - type: http
+    id: freelancer-orders
+    name: Freelancer Orders Service
+    schedule: '@every 5s'
+    hosts: ['http://192.168.1.7:4006/order-health']
+    check.request.method: GET
+    check.response.status: [200]
+
+  - type: http
+    id: freelancer-reviews
+    name: Freelancer Reviews Service
+    schedule: '@every 5s'
+    urls: ['http://192.168.1.7:4007/review-health']
+    check.request.method: GET
+    check.response.status: [200]
+
+processors:
+  - add_cloud_metadata: ~
+  - add_docker_metadata: ~
+
+monitoring_enabled: true
+
+output.elasticsearch:
+  hosts: ['http://elasticsearch_container:9200']
+  username: 'elastic'
+  password: 'admin1234'

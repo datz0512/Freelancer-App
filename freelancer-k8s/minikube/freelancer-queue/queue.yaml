@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: freelance-queue
+  namespace: production
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: freelance-queue
+  template:
+    metadata:
+      labels:
+        app: freelance-queue
+    spec:
+      containers:
+        - name: freelance-queue
+          image: rabbitmq:3.13.0-management-alpine
+          env:
+            - name: RABBITMQ_DEFAULT_USER
+              valueFrom:
+                secretKeyRef:
+                  name: freelance-backend-secret
+                  key: freelance-rabbitmq-user
+            - name: RABBITMQ_DEFAULT_PASS
+              valueFrom:
+                secretKeyRef:
+                  name: freelance-backend-secret
+                  key: freelance-rabbitmq-password
+          resources:
+            limits:
+              memory: '1Gi'
+              cpu: '0.5'
+            requests:
+              memory: 150Mi
+              cpu: 100m
+          ports:
+            - name: queue
+              containerPort: 5672
+              protocol: TCP
+            - name: mgmt
+              containerPort: 15672
+              protocol: TCP
+          volumeMounts:
+            - name: rabbitmq-local-storage
+              mountPath: /var/lib/rabbitmq
+      volumes:
+        - name: rabbitmq-local-storage
+          persistentVolumeClaim:
+            claimName: rabbitmq-pvc

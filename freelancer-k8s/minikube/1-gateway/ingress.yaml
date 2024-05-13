@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: freeln-gateway-ingress
+  namespace: production
+spec:
+  ingressClassName: nginx
+  defaultBackend:
+    service:
+      name: freeln-gateway
+      port:
+        number: 4000
+  tls:
+    - hosts:
+        - freelancerapp.com
+      secretName: gateway-ingress-tls
+  rules:
+    - host: freelancerapp.com
+      http:
+        paths:
+          - pathType: Prefix
+            path: '/api/gateway/v1'
+            backend:
+              service:
+                name: freeln-gateway
+                port:
+                  number: 4000

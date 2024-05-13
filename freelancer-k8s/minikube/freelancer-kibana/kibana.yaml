@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: freelance-kiba
+  namespace: production
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: freelance-kiba
+  template:
+    metadata:
+      labels:
+        app: freelance-kiba
+    spec:
+      containers:
+        - name: freelance-kiba
+          image: docker.elastic.co/kibana/kibana:8.11.0
+          resources:
+            limits:
+              memory: '1Gi'
+              cpu: '1500m'
+            requests:
+              cpu: 250m
+              memory: 1Gi
+          ports:
+            - name: freelance-kiba
+              containerPort: 5601
+          env:
+            - name: ELASTICSEARCH_HOSTS
+              # http://<service-name>.<namespace>.svc.cluster.local:<port-number>
+              value: http://freelance-elast.production.svc.cluster.local:9200
+            # - name: ELASTIC_PASSWORD
+            #   value: 'admin1234'
+            - name: ELASTICSEARCH_USERNAME
+              value: kibana_system
+            - name: ELASTICSEARCH_PASSWORD
+              value: kibana
+            - name: ELASTICSEARCH_SERVICEACCOUNT_TOKEN
+              value: 'AAEAAWVsYXN0aWMva2liYW5hL2ZyZWVsYW5jZXIta2liYW5hOnNpX01hNjMyVFlLVmNkMTVlZ2lrUHc'
+          volumeMounts:
+            - name: kibana-config
+              mountPath: /usr/share/kibana/config
+      volumes:
+        - name: kibana-config
+          configMap:
+            name: kibana-config

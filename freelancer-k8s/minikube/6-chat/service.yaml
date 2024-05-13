@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: freeln-chat
+  namespace: production
+spec:
+  type: ClusterIP
+  selector:
+    app: freeln-chat
+  ports:
+    - name: chat
+      port: 4005
+      targetPort: 4005
+      protocol: TCP

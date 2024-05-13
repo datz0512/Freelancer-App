@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: freeln-notification
+  namespace: production
+spec:
+  type: ClusterIP
+  selector:
+    app: freeln-notification
+  ports:
+    - name: notification
+      port: 4001
+      targetPort: 4001
+      protocol: TCP
