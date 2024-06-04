@@ -1,8 +1,5 @@
 This repo contains all codes for the ECommerce freelance marketplace application.
 
-## Project architecture:
-![alt text](https://i.ibb.co/MD9WLy4/Project-architecture.png)
-
 ## Functional requirements:
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;User Authentication :
 
